@@ -5,7 +5,7 @@ strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
 
 print(type(strs)) # <class 'list'>
 
-anagrams = defaultdict(list) 
+anagrams = collections.defaultdict(list) 
 
 print(type(anagrams)) # <class 'collections.defaultdict'> 
 
@@ -13,7 +13,7 @@ print(anagrams) # defaultdict(<class 'list'>, {})
 
 for word in strs:
     words = sorted(word)
-    print(words)
+    # print(words)
     '''
     ['a', 'e', 't']
     ['a', 'e', 't']
@@ -22,7 +22,13 @@ for word in strs:
     ['a', 'n', 't']
     ['a', 'b', 't']
     '''
-    anagrams[''.join]
+    anagrams[''.join(words)].append(word)
+
+print(anagrams) 
+# defaultdict(<class 'list'>, {'aet': [], 'ant': [], 'abt': []})
+# .append(word) 이후 -> defaultdict(<class 'list'>, {'aet': ['eat', 'tea', 'ate'], 'ant': ['tan', 'nat'], 'abt': ['bat']})
+
+print(anagrams.values())
 
     # anagrams['']
 
