@@ -27,6 +27,7 @@ class Solution:
         return True
 
 
+'''
 s = input()
 strs = []
 
@@ -42,3 +43,4 @@ while len(strs) > 1:  # strs의 길이가 하나가 되면 while문 escape
         return False
     return True
 
+'''

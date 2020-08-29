@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         anagrams = collections.defaultdict(list)
@@ -15,3 +17,5 @@ class Solution:
 
         
         return anagrams.values() # value들만 return
+
+
