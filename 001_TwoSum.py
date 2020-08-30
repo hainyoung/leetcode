@@ -1,3 +1,5 @@
+# p. 173 07번 문제
+
 # 1. Two Sum
 
 # input : nums = [2 7, 11, 15], taget = 9

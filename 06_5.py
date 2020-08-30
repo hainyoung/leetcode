@@ -1,4 +1,4 @@
-# class Solution:
+class Solution:
     def longestPalindrome(self, s: str) :
         def expand(left, right): # left, right : 포인터, 단계적 확장을 위한
             while left >= 0 and right < len(s) and s[left] == s[right]:
@@ -16,6 +16,9 @@
 
 
 
+
+
+'''
 example = input()
 
 def expand(left, right): # 판별 조건에 맞춰 확장할 포인터를 지정해주는 함수 정의
@@ -45,5 +48,5 @@ for i in range(len(example)-1): # -1 해주지 않아도 정답으로 뜨긴 함
     result = max(result, expand(i, i), expand(i, i+1), key = len)
 
 print(result)
-
+'''
     
