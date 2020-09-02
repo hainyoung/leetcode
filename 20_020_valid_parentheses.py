@@ -53,3 +53,5 @@ qu.append(5)
 print(qu.popleft()) # O(1)
 
 
+a = [[[0] * 4] * 3]
+print(a)
