@@ -57,13 +57,15 @@ s_1 = 'race a car'
 test_1 = Solution_1()
 print(test_1.isPalindrome_1(s_1)) # False
 
+
+
 # sol2) dque
 # 리스트만으로도 충분히 문제를 해결할 수 있지만
 # deque, 데크를 명시적으로 선언하면 좀 더 속도를 높일 수 있다
 
 from collections import deque
 def isPalindrome_2(s: str):
-    # 자료형 deqeu로 선언
+    # 자료형 deque로 선언
     strs: Deque = deque()
 
     for char in s:
@@ -99,7 +101,7 @@ def isPalindrome_3(s: str):
 # sol2에 비해 약 2배 정도 빠른 속도
 
 
-# 문자열 슬라시이
+# 문자열 슬라이싱
 # 파이썬에서는 문자열 슬라이싱이라는 매우 편리한 기능을 제공
 # 무엇보다 내부적으로 매우 빠르게 동작
 # 위치를 지정하면 해당 위치의 배열 포인터를 얻게 되며

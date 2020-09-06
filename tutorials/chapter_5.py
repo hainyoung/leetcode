@@ -274,7 +274,7 @@ print(a['key1']) # value1
 try: 
     print(a['key4'])
 except KeyError:
-    print('\'key4\' isn\'t exist.') # 'key4' isn't exist.
+    print('존재하지 않는 키') # 존재하지 않는 키 
 
 # 이처럼 존재하지 않는 키가 있을 경우 예외 처리를 하게 되면
 # 나중에 삽입하는 등 별도로 추가 작업을 할 수가 있어 유용
