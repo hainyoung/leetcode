@@ -36,7 +36,7 @@
 # print(s==s[::-1])
 
 #######################################################################
-
+'''
 # 일반 리스트
 def Palindrome_1(s: str):
     strs = []
@@ -68,14 +68,17 @@ def Palindrome_2(s:str):
 
     return True
 
-
+'''
 # 정규식 표현과 슬라이싱 사용
 import re
 
 def Palindrome_3(s: str):
     s = s.lower()
 
-    s = re.sub('[^a-z0-9]', '', s)
+    s = re.sub(r'[^a-z0-9]', '', s)
 
     return s == s[::-1]
 
+s = 'ama'
+
+print(Palindrome_3(s))
