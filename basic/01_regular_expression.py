@@ -78,3 +78,6 @@ p = re.compile("ab*")
 # re.compile 해서 정규표현식을 넣어주면 패턴 객체라고 해서 p 라는 객체가 생성
 # 이걸 이용해서 우리가 원하는 문자열과 비교 가능
 # 패턴 객체 이용 방법 4가지 : Match, Search, Findall, Finditer
+
+
+

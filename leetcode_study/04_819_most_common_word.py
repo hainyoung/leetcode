@@ -10,3 +10,18 @@ import collections
 # 따라서 데이터 클렌징 data cleansing 이라 부르는 입력값에 대한 preprocessing 작업이 필요
 # 더 편리하게 처리하기 위해 정규식을 쓰면 다음과 같이 처리 가능
 
+
+# most_common_word
+# 
+# # paragraph = "Bob hit a ball, the hit BALL flew far after it was hit."
+# banned = ["hit"]
+# (1))
+# words = [word for word in re.sub(r'[^\w]', ' ', paragraph).lower().split() if word not in banned]
+# print(words)
+# (2)
+# words = []
+# for c in word:
+#     if c not in banned:
+#         words.append(c)
+# print(words)
+# (1) == (2) (1)처럼 간단히 표현 가능
