@@ -72,12 +72,68 @@ print(res.sub("\g<1>-********", data))
 # ? == {0, 1}과 같은 표현
 
 # 파이썬에서 정규 표현식을 지원하는 모듈 : re
-import re
-p = re.compile("ab*")
+# 사용예시
+# import re
+# p = re.compile("ab*")
 
 # re.compile 해서 정규표현식을 넣어주면 패턴 객체라고 해서 p 라는 객체가 생성
 # 이걸 이용해서 우리가 원하는 문자열과 비교 가능
 # 패턴 객체 이용 방법 4가지 : Match, Search, Findall, Finditer
 
 
+# Match
+import re
+p = re.compile('[a-z]+')
+m = p.match('python')
+# m = p.match('3 python')
 
+print(m) 
+# <re.Match object; span=(0, 6), match='python'>
+# None
+
+p = re.compile('[a-z]+')
+s = p.search('python')
+# s = p.search('3 python')
+
+print(s)
+# <re.Match object; span=(0, 6), match='python'>
+# <re.Match object; span=(2, 8), match='python'>
+
+p = re.compile('[a-z]+')
+a = p.findall('life is too short')
+print(a)
+# ['life', 'is', 'too', 'short']
+# 일치하는 것을 찾아서 리스트형태로 반환
+
+
+p = re.compile('[a-z]+')
+i = p.finditer('life is too short')
+print(i)
+# <callable_iterator object at 0x00000227707B0788>
+for j in i:
+    print(j)
+# <re.Match object; span=(0, 4), match='life'>
+# <re.Match object; span=(5, 7), match='is'>
+# <re.Match object; span=(8, 11), match='too'>
+# <re.Match object; span=(12, 17), match='short'>
+
+#########################################################################
+# Match 객체의 method
+# group() : 매치된 문자열을 리턴
+# start() : 매치된 문자열의 시작 위치 리턴
+# end() : 매치된 문자열의 끝 위치 리턴
+# span() : 매치된 문자열의 (시작, 끝)에 해당하는 튜플 리턴
+
+p = re.compile('[a-z]+')
+m = p.match('python')
+print(m.group()) # python
+print(m.start()) # 0
+print(m.end()) # 6
+print(m.span()) # (0, 6)
+
+# compile option : DOTALL, S
+
+# DOTALL
+p = re.compile('a.b') # . : 줄바꿈을 제외한 모든 문자와 매치
+m = p.match('a\nb')
+print(m)
