@@ -1,25 +1,35 @@
-from typing import List
-import re
-import collections
+# Given a paragraph and a list of banned words, return the most frequent word that is not in the list of banned words.  It is guaranteed there is at least one word that isn't banned, and that the answer is unique.
 
-class Solution:
-    def mostCommonWord(self, paragraph: str, banned: List[str]):
-        words = re.sub('[^\w]', ' ', paragraph).lower().split() 
-        
-        # re.sub : 정규 표현식
-        # 정규식에서 \w는 단어 문자를 뜩하고 ^은 not을 의미한다
-        # 위 정규식은 단어가 아닌 것들은 모두 공백으로 치환하는 역할을 함
-        # + lower()로 소문자자로 모두 바꿔주고, 공백을 기준으로 배열 생성
-        # 
-        
-        words = filter(lambda x: x not in banned, words) # banned 에 속한 단어는 필터링 해주는 작업, banned에 속하지 않는 단어들만 words 변수에 넣어준다, 마지막 words는 input
-        
-        counter = collections.Counter(words) # collections의 Counter라는 자료구조를 사용하면 words안의 단어들의 개수를 세어 준다    # print(words)
-        # print(counter) # 단어별로 몇 번 등장하는지 딕셔너리 형태로 출력
-        # print(counter.most_common(1)) # 가장 많이 등장하는 단어, 등장 개수를 출력해주는 most_common() 함수를 사용
-        # [('ball', 2)] 이런 식으로 나오기 때문에
-        # print(counter.most_common(1)[0][0])
-        # 위와 같이 위치를 지정해줘야 한다
-        # ball
-        
-        return counter.most_common(1)[0][0]
+# Words in the list of banned words are given in lowercase, and free of punctuation.  Words in the paragraph are not case sensitive.  The answer is in lowercase.
+
+# Example
+# Input: 
+# paragraph = "Bob hit a ball, the hit BALL flew far after it was hit."
+# banned = ["hit"]
+# Output: "ball"
+# Explanation: 
+# "hit" occurs 3 times, but it is a banned word.
+# "ball" occurs twice (and no other word does), so it is the most frequent non-banned word in the paragraph. 
+# Note that words in the paragraph are not case sensitive,
+# that punctuation is ignored (even if adjacent to words, such as "ball,"), 
+# and that "hit" isn't the answer even though it occurs more because it is banned.
+
+# Note
+# 1 <= paragraph.length <= 1000.
+# 0 <= banned.length <= 100.
+# 1 <= banned[i].length <= 10.
+# The answer is unique, and written in lowercase (even if its occurrences in paragraph may have uppercase symbols, and even if it is a proper noun.)
+# paragraph only consists of letters, spaces, or the punctuation symbols !?',;.
+# There are no hyphens or hyphenated words.
+# Words only consist of letters, never apostrophes or other punctuation symbols.
+
+# list comprehension & Counter
+from typing import List
+import collections, re
+def mostCommonWord(paragraph: str, banned: List[str]):
+    words = [word for word in re.sub(r'[^\w]', ' ', paragraph).lower().split() if word not in banned]
+
+    counts = collections.Counter(words)
+
+    return counts.most_common(1)[0][0]
+
