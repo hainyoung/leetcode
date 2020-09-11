@@ -166,4 +166,29 @@ for i, num in enumerate(nums):
 # 9-7 == 2 in nums_map? yes, nums_map = {2: 0}
 # nums_map[target-num == 2], i == 1
 # print [0, 1]
+
+# 5. two-pointer
+# if, left pointer + right pointer > target
+# then, right pointer -1 ( to the left poineter)
+
+# if, left pointer + right pointer < target
+# then, lef tpointer + 1 ( to th right pointer)
+
+# explanation
+'''
+nums = [2, 7, 11, 15]
+target = 9
+
+left, right = 0, len(nums) -1 # why nums - 1? index starts from zero
+
+while not left == right : # if left == right, end while
+    if nums[left] + nums[right] < target :
+        left +=1 
+
+    elif nums[left] + nums[right] > target :
+        right -= 1
+
+    else : # nums[left] + nums[right] == target
+        # print(left, right)
+'''
 ###############################################################################
