@@ -1,56 +1,61 @@
-# # Definition for singly-linked list.
+# Given a singly linked list, determine if it is a palindrome.
 
-# 234. Palindrome Linkedlist
+# Example
 
-from dataclasses import dataclass
-@dataclass
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+# Input: 1->2
+# Output: false
 
-@dataclass
-class Solution:
-    def isPalindrome(self, head: ListNode) -> bool:
-        q: List = []
+# Input: 1->2->2->1
+# Output: true
 
-        if not head:
-            return True
+# Follow up:
+# Could you do it in O(n) time and O(1) space?
 
-        node = head
 
-        # 리스트 변환
-        while node is not None:
-            q.append(node.val)
-            node = node.next
-        
-        # 팰린드롬 판별
-        while len(q) > 1:
-            if q.pop(0) != q.pop():
-                return False
-        
+
+from typing import List
+
+# 1. covert to list
+def isPalindrome1(head: ListNode):
+    q: List = []
+    # if head is empty->return True
+    if not head:
         return True
 
-# 예제 1
-if __name__ == '__main__':
-    li_1 = ListNode(1)
-    li_2 = ListNode(2)
-    li_1.next = li_2
+    node = head
+    # convert to list
+    while node is not None:
+        q.append(node.val)
+        node = node.next
 
-    a = Solution()
-    aaa = a.isPalindrome(li_1)
-    print(aaa)
+    # discriminate palindrome
+    while len(q) > 1 :
+        if q.pop(0) != q.pop():
+            return False
 
-# 예제 2
-if __name__ == '__main__':
-    li_1 = ListNode(1)
-    li_2 = ListNode(2)
-    li_3 = ListNode(2)
-    li_4 = ListNode(1)
-    li_1.next = li_2
-    li_2.next = li_3
-    li_3.next = li_4
+    return True
 
-    b = Solution()
-    bbb = b.isPalindrome(li_1)
-    print(bbb)
+
+
+# 2. optimization using deque
+import collections
+def isPalindrome2(head: Listnode):
+    # declare "deque"
+    q: Deque = collections.deque()
+
+    if not head:
+        return True
+
+    node = head
+    while node is not None:
+        q.append(node.val)
+        node = node.next
+
+    while len(q) > 1 :
+        if q.popleft() != q.pop():
+            return False
+    return True
+
+
+
+
