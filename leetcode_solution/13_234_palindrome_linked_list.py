@@ -14,11 +14,19 @@
 
 
 from typing import List
+from dataclasses import dataclass
+@dataclass
+class LitNode:
+    def __init__(self, val=0, nex=None):
+        self.val = val
+        self.next = next
 
-# 1. covert to list
+
 def isPalindrome1(head: ListNode):
+    # creat an empty list
     q: List = []
-    # if head is empty->return True
+
+    # if head isn't exist, return True
     if not head:
         return True
 
@@ -28,12 +36,12 @@ def isPalindrome1(head: ListNode):
         q.append(node.val)
         node = node.next
 
-    # discriminate palindrome
-    while len(q) > 1 :
+    while len(q) > 1:
         if q.pop(0) != q.pop():
             return False
 
     return True
+
 
 
 

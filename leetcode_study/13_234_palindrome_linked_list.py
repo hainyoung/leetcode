@@ -11,6 +11,12 @@
 # Follow up:
 # Could you do it in O(n) time and O(1) space?
 from typing import List
+from dataclasses import dataclass
+@dataclass
+class LitNode:
+    def __init__(self, val=0, nex=None):
+        self.val = val
+        self.next = next
 
 # 1. covert to list
 # explanation
@@ -41,6 +47,26 @@ def isPalindrome1(head: ListNode):
 
     return True
 
+# linke list : 1->2->2->1
+# if not head: -> N/A
+# node = head(1)
+# while 1 is not None: -> True
+#   q.append(1) -> q = [1]
+#   node = 1.next -> node = 2
+# while 2 is not None: -> True
+#   q.append(2) -> q = [1, 2]
+#   node = 2.next -> node = 2
+# while 2 is not None : -> True
+#   q.append(2) -> q = [1, 2, 2]
+#   node = 2.next -> node = 1
+# while 1 is not None : -> True
+#   q.append(1) -> q = [1, 2, 2, 1]
+#   node = 1. next -> node = None -> while : False -> excape
+# q = [1, 2, 2, 1]
+# q.pop(0) and q.pop -> True
+
+
+
 # 2. optimization using deque
 # explanation
 # 위의 코드 중 if 1.pop(0) != q.pop():
@@ -59,23 +85,22 @@ def isPalindrome1(head: ListNode):
 # q: Deque = collections.deque()
 # if q.popleft() != q.pop():
 import collections
-def isPalindrome2(head: Listnode):
-    # declare "deque"
+def isPalindrome2(head: ListNode):
     q: Deque = collections.deque()
 
     if not head:
         return True
-
+    
     node = head
     while node is not None:
         q.append(node.val)
         node = node.next
 
-    while len(q) > 1 :
-        if q.popleft() != q.pop():
-            return False
-    return True
+    while len(q) > 1:
+        q.popleft() != q.pop()
+        return False
 
+    return True
 
 
 
