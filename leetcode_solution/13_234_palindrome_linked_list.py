@@ -26,7 +26,7 @@ def isPalindrome1(head: ListNode):
     # creat an empty list
     q: List = []
 
-    # if head isn't exist, return True
+    # if head doesn't exist, return True
     if not head:
         return True
 
@@ -41,8 +41,6 @@ def isPalindrome1(head: ListNode):
             return False
 
     return True
-
-
 
 
 # 2. optimization using deque
