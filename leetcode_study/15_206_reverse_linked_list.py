@@ -5,6 +5,9 @@
 # Input: 1->2->3->4->5->NULL
 # Output: 5->4->3->2->1->NULL
 
+# explanation
+# 연결 리스트를 뒤집는 문제는 매우 일반적이면서도 활용도가 높은 문제
+# 재귀 recursive 구조와 반복 iterative 구조, 2가지 방식으로 풀이
 
 # 1. recursive
 from dataclasses import dataclass
@@ -24,13 +27,3 @@ class Solution:
             return reverse(next, node)
         
         return reverse(head)
-
-# 2. iterativ
-def reverseList2(self, head: ListNode):
-    node, prev = head, None
-
-    while node:
-        next, node.next = node.next, prev
-        prev, node = node, next
-
-    return prev

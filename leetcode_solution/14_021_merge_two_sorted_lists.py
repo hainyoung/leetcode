@@ -27,9 +27,6 @@ class Solution:
 
 
 
-
-
-
 '''
 def printAll(head):
     start = head
