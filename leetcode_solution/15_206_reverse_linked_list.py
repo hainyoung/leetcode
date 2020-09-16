@@ -16,14 +16,15 @@ class ListNode:
 
 class Solution:
     def reverseList1(self, head: ListNode):
-        def reverse(node: ListNode, prev: ListNode = None):
+        def reverse(node: Listnode, prev: None):
             if not node:
                 return prev
-
+            
             next, node.next = node.next, prev
             return reverse(next, node)
         
         return reverse(head)
+
 
 # 2. iterativ
 def reverseList2(self, head: ListNode):
@@ -34,3 +35,4 @@ def reverseList2(self, head: ListNode):
         prev, node = node, next
 
     return prev
+
