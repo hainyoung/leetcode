@@ -8,7 +8,6 @@
 # Output: 7 -> 0 -> 8
 # Explanation: 342 + 465 = 807.
 
-
 from dataclasses import dataclass
 @dataclass
 class ListNode:
@@ -16,6 +15,15 @@ class ListNode:
         self.val = val
         self.next = next
 
+
+# 1. data type conversion
+# explanation
+# 문제를 보자마자 먼저 생각나는 방법
+# 연결 리스트를 문자열로 이어 붙인 다음 숫자로 변환, 계산한 후 다시 연결 리스트로 바꾼다
+# 과정 자체도 복잡하고 게다가 역순으로 뒤집어야하기 때문에 시간이 많이 소요될 것
+# 일단 시도는 해 본다
+# 먼저 역순으로 연결 된 리스트를 뒤집어야 한다
+# 앞선 문제에서 풀었던 코드를 사용하면 된다
 
 # 1. data type converseion
 # (1) reverse linked list
@@ -47,7 +55,7 @@ def toReversedLinkedList(self, result: ListNode):
     return node
 
 # (4) add two linked lists
-def addTwoNumbers(self, l1: ListNode, l2: ListNode):
+def addTwoNumbers1(self, l1: ListNode, l2: ListNode):
     a = self.toList(self.reverseList(l1))
     b = self.toList(self.reverseList(l2))
     
