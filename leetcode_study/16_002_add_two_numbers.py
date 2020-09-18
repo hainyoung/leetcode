@@ -36,6 +36,24 @@ def reverseList(self, head: ListNode):
         
     return prev
 
+# ex) 2 - 4 - 3
+# node = 2, prev = None
+# while node:
+# next = 2.next == 4
+# 2.next = None -> 2 - Null
+# prev = 2, node = next == 4
+# while node:
+# next = 4.next == 3
+# 4.next = prev == 2 -> 4 - 2- Null
+# prev = node == 4
+# node = 3
+# while node:
+# next = 3.next == Null
+# 3.next = prev == 4 -> 3 - 4 - 2 - Null
+# while node? -> False
+# return prev
+
+
 # (2) linked list -> python list
 def toList(self, node: ListNode):
     list: List =[]
@@ -43,6 +61,9 @@ def toList(self, node: ListNode):
         list.append(node.val)
         node = node.next
     return list
+
+# ex) 3 - 4 - 2
+# [3, 4, 2]
 
 # (3) python list -> linked list
 def toReversedLinkedList(self, result: ListNode):
@@ -54,6 +75,8 @@ def toReversedLinkedList(self, result: ListNode):
         
     return node
 
+
+
 # (4) add two linked lists
 def addTwoNumbers1(self, l1: ListNode, l2: ListNode):
     a = self.toList(self.reverseList(l1))
@@ -64,6 +87,29 @@ def addTwoNumbers1(self, l1: ListNode, l2: ListNode):
     
     return self.toReversedLinkedList(str(resultStr))
 
+# a = self.toList(self.reversreList(2 - 4 - 3))
+# a = self.toList(3 - 4 -2)
+# a = [3, 4, 2]
+
+# int(''.join(str(e) for e in a)) => 342
+
+# 342 + 465 = 807
+# self.toReversedLinkedList(807)
+# prev = ListNode = None
+# for r in result:
+# node = ListNode(r)
+# node = 8
+# 8.next = prev == None
+# prev = 8
+# node = ListNode(r)
+# node = 0
+# 0.next = prev == 8
+# prev = 0
+# node = ListNode(r)
+# node = 7
+# 7.next = prev == 0
+# prev = 7
+# 7 - 0 - 8
 
 # 2. using Full Adder
 def addTwoNumbers2(self, l1: ListNode, l2: ListNode):
@@ -87,3 +133,54 @@ def addTwoNumbers2(self, l1: ListNode, l2: ListNode):
         head = head.next
     
     return root.next
+
+
+# explanation
+# l1 : 2 -4 - 3 / l2 : 5 - 6 - 4
+# 일단, 연결리스트들의 합이 또 다른 연결리스트 형태가 되어야 하므로
+# 연결리스트 하나를 만들어준다
+# root = head = ListNode(0) 이렇게
+
+# carry = 0 : 두 숫자의 합이 10 이상일 때 올라가야 하는 1의 값을 담아줄 수 있는 변수
+# ex) 9 + 1 이면 carry에 1을 담아둠
+
+# if l1: l1 == 2
+# sum += 2
+# l1 = 2.next == 4
+
+# if l2 : l2 == 5
+# sum(2) += 5 == 7
+# l2 = 5.next == 6
+
+# carry, val = divmod(7+0, 10) , divmod(a, b) -> a를 b로 나눴을 때의 몫과 나머지를 반환
+# carry = 0, 7 ( 7 / 10) -> 몫: 0, 나머지 : 7
+# head.next  - 7 -> 0 - 7
+# head = head.next == 7
+
+# l1 = 4, l2 = 6, caryy = 0
+# sum  = 0
+# sum += 4
+# sum += 6 -> sum == 10
+# caryy, val = divmod(10, 10)
+# carry = 1, val = 0
+# head.next = ListNode(0)
+# 7. next == 0
+# head = 0
+
+# l1 = 3, l2 = 4, caryy = 1
+# sum += 3
+# sum += 4 -> sum = 7
+# cayy, val = divmod(7 + 1, 10)
+# cayy = 0, val = 8
+# head.next = ListNode(8)
+# 0.next = 8 -> 0 - 7 - 0 - 8
+# head = 8
+
+# root = 0
+# return root.next
+# 7 - 0 - 8
+
+
+
+# 숫자형 리스트를 단일 값으로 병합하기
+# 
