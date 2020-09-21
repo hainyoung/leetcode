@@ -41,17 +41,42 @@ def isValid(self, s: str):
         ']': '[',
     }
 
+
     # using stack and checking for a match
     for char in s:
         if char not in table:
             stack.append(char)
         elif not stack or table[char] != stack.pop(): # exception handling
             return False
+        
+        # else == char in stack or table[char]== stack.pop()
 
         return len(stack) == 0
 
+# explanation
+# ! Key의 Value를 얻기 위해서는 딕셔너리변수이름[Key]를 사용한다 ! #
 
 
+# s = ()[]{}
+
+# loop1
+# ( is not in table -> stack.append('(') -> stack = ['(']
+
+# loop2
+# ) , table[')'] == stack.pop()
+# table[')'] == ')'의 value, '(' == stack.pop()
+
+# 헷갈렸던 점, )은 pop이 안 되는 것 아닌가?
+# 해결 : )는 stack에 append된 적이 없다!
+# 따라서 비교 과정만 거치고 기존 stack에 append 되어 있던 '('는 사라짐
+# 결론적으로 ()가 들어오면 stack은 비게 된다
+
+# loop3, 4, 5, 6 마찬가지로 진행됨
+
+# 위 코드는 pop() 결과가 일치하지 않는지 확인하는 것 플러스
+# 스택이 비어있는지를 최종적으로 확인해서 True, False를 결정(len(stack) == 0)
+
+# 예외 처리가 중요하다!
 
 
 

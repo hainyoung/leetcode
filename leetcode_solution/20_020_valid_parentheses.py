@@ -1,57 +1,47 @@
-# elif table[char] != stack.pop():
-#     return False
-# 풀어쓰면
+# Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
-# if table[char] != stack.pop():
-#    return False
-# else  table[char] == stack.pop():
-    #  return true
+# An input string is valid if:
 
-# Stack과 Queue
+# 1. Open brackets must be closed by the same type of brackets.
+# 2. Open brackets must be closed in the correct order.
+ 
 
+# Example 1:
 
-stack = []
+# Input: s = "()"
+# Output: true
+# Example 2:
 
-stack.append(1)
-stack.append(2)
-stack.append(3)
-stack.append(4)
-stack.append(5)
+# Input: s = "()[]{}"
+# Output: true
+# Example 3:
 
-while stack :
-    print(stack.pop())
+# Input: s = "(]"
+# Output: false
+# Example 4:
 
-print()
-print()
+# Input: s = "([)]"
+# Output: false
+# Example 5:
 
-q = []
+# Input: s = "{[]}"
+# Output: true
 
-q.append(1)
-q.append(2)
-q.append(3)
-q.append(4)
-q.append(5)
+def isValid(self, s: str):
+    stack = []
+    table = {
+        ')': '(',
+        '}': '{',
+        ']': '['
+    }
 
-while q:
-    print(q.pop(0)) 
+    for char in s:
+        if char not in table:
+            stack.append(char)
 
+        elif not stack or table[char] != stack.pop():
+            return False
 
-print()
-print()
+    return len(stack) == 0
 
-# 위와 같이 써도 되지만 시간 복잡도가 높아진다
-
-import collections
-qu = collections.deque()
-
-qu.append(1)
-qu.append(2)
-qu.append(3)
-qu.append(4)
-qu.append(5)
-
-print(qu.popleft()) # O(1)
-
-
-a = [[[0] * 4] * 3]
-print(a)
+    
