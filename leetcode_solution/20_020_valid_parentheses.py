@@ -44,4 +44,4 @@ def isValid(self, s: str):
 
     return len(stack) == 0
 
-    
+   
