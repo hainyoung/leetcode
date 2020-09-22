@@ -80,6 +80,7 @@ def isValid(self, s: str):
 
 
 
+
 '''
 # elif table[char] != stack.pop():
 #     return False
@@ -139,3 +140,20 @@ print(qu.popleft()) # O(1)
 a = [[[0] * 4] * 3]
 print(a)
 '''
+
+def isValid(self, s: str):
+    stack = []
+    table = {
+        ')': '(',
+        '}': '{',
+        ']': '[',
+    }
+
+
+    for char in s:
+        if char not in table:
+            stack.append(char)
+        elif not stack or table[char] != stack.pop():
+            return False
+
+        return len(stack) == 0
