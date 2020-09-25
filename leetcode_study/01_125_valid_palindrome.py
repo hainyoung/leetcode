@@ -211,3 +211,6 @@ def Palindrome_3(s: str):
 s = 'ama'
 
 print(Palindrome_3(s))
+
+
+# 0925 review
