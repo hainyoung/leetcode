@@ -85,3 +85,5 @@ def reverseString_2(s: List[str]):
 
 s2 = list(input().split())
 print(reverseString_2(s2))
+
+#0926 review
