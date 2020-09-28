@@ -61,3 +61,5 @@ def mostCommonWrod(paragraph: str, banned: List[str]):
     return counts.most_common(1)[0][0]
 
 print(mostCommonWrod(paragraph, banned))
+
+# 0928 review
