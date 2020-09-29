@@ -208,3 +208,5 @@ print(sorted(a, key=fn)) # ['abc', 'cfc', 'cde']
 # 람다 표현식으로
 a = ['cde', 'cf', 'abc']
 print(sorted(a, key=lambda s: (s[0], s[-1])))
+
+# review 0929
