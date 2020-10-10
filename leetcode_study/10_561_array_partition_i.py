@@ -64,3 +64,5 @@ def arrayPairSum3(nums: List[int]):
 
 nums = [1, 2, 3, 4]
 print(nums[::2])
+
+# 1010 review
